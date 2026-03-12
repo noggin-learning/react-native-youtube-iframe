@@ -125,6 +125,10 @@
       }
 
       function onPlayerStateChange(event) {
+        if (event.data === YT.PlayerState.PAUSED) {
+          console.log('player.getCurrentTime()', player.getCurrentTime());
+          player.seekTo(player.getCurrentTime(), true);
+        }
         sendMessageToRN({eventType: 'playerStateChange', data: event.data});
       }
 
