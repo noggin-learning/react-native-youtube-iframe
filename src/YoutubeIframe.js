@@ -212,17 +212,18 @@ const YoutubeIframe = (props, ref) => {
       try {
         const url = request.mainDocumentURL || request.url;
         if (Platform.OS === 'ios') {
-          const iosFirstLoad = url === 'about:blank';
-          if (iosFirstLoad) {
-            return true;
-          }
-          const isYouTubeLink = url.startsWith('https://www.youtube.com/');
-          if (isYouTubeLink) {
-            Linking.openURL(url).catch(error => {
-              console.warn('Error opening URL:', error);
-            });
-            return false;
-          }
+          // const iosFirstLoad = url === 'about:blank';
+          // if (iosFirstLoad) {
+          //   return true;
+          // }
+          // const isYouTubeLink = url.startsWith('https://www.youtube.com/');
+          // if (isYouTubeLink) {
+          //   Linking.openURL(url).catch(error => {
+          //     console.warn('Error opening URL:', error);
+          //   });
+          //   return false;
+          // }
+          return true;
         }
         return url.startsWith(baseUrlOverride || DEFAULT_BASE_URL);
       } catch (error) {
